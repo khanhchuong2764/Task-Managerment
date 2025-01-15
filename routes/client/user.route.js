@@ -5,5 +5,7 @@ const validate = require("../../validate/client/user.validate");
 Router.post('/register',validate.register, controller.register);
 
 Router.post('/confirm',validate.confirm, controller.confirm);
+
+Router.post('/login', controller.login);
   
 module.exports = Router;
