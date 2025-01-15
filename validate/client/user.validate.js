@@ -68,3 +68,68 @@ module.exports.confirm = (req,res,next) => {
     }
     next();
 }
+
+module.exports.login = (req,res,next) => {
+    if(!req.body.email) {
+        res.json({
+            code: 400,
+            message:"Email không được để trống"
+        });
+        return
+    }
+    if(!req.body.password) {
+        res.json({
+            code: 400,
+            message:"Password không được để trống"
+        });
+        return
+    }
+    next();
+}
+
+module.exports.forgot = (req,res,next) => {
+    if(!req.body.email) {
+        res.json({
+            code: 400,
+            message:"Email không được để trống"
+        });
+        return
+    }
+    next();
+}
+
+module.exports.otp = (req,res,next) => {
+    if(!req.body.email) {
+        res.json({
+            code: 400,
+            message:"Email không được để trống"
+        });
+        return
+    }
+    if(!req.body.otp) {
+        res.json({
+            code: 400,
+            message:"Mã OTP không được để trống"
+        });
+        return
+    }
+    next();
+}
+
+module.exports.reset = (req,res,next) => {
+    if(!req.body.password) {
+        res.json({
+            code: 400,
+            message:"Password không được để trống"
+        });
+        return
+    }
+    if(!req.body.token) {
+        res.json({
+            code: 400,
+            message:"Vui lòng gửi thêm token"
+        });
+        return
+    }
+    next();
+}

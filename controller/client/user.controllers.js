@@ -204,7 +204,7 @@ module.exports.forgotPassword = async (req,res) => {
     res.json({  
         code: 200,
         message:"Gửi mã otp thành công",
-    });
+    }); 
 }
 
 // [POST] /user/password/otp
