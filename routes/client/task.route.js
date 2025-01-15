@@ -1,6 +1,7 @@
 const express = require('express');
 const Router = express.Router();
 const controller = require("../../controller/client/task.controllers");
+const validate = require("../../validate/client/task.validate");
 
 Router.get('/', controller.index);
   
@@ -10,9 +11,9 @@ Router.patch('/change-status/:id', controller.changeStatus);
 
 Router.patch('/change-multi', controller.changeMulti);
 
-Router.post('/create', controller.create);
+Router.post('/create',validate.create, controller.create);
 
-Router.patch('/edit/:id', controller.edit);
+Router.patch('/edit/:id',validate.create, controller.edit);
 
 Router.delete('/delete/:id', controller.delete);
 
