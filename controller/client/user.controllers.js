@@ -27,7 +27,8 @@ module.exports.register = async (req, res) => {
         fullName : req.body.fullName,
         email : req.body.email,
         password : req.body.password,
-        phone : req.body.phone
+        phone : req.body.phone,
+        token:generalHelper.CreateStringRamdom(20)
     })
     await user.save();
     res.cookie("token",user.token);

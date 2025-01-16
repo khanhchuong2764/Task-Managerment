@@ -1,15 +1,11 @@
 const mongoose = require('mongoose');
-const general = require("../helpers/general");
 const Userchema = new mongoose.Schema(
     {   
         fullName:String,
         email:String,
         phone:String,
         password:String,
-        token: {
-            type: String,
-            default: general.CreateStringRamdom(20)
-        },
+        token: String,
         status:{
             type:String,
             default: "initial"
