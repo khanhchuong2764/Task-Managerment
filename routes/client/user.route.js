@@ -16,5 +16,7 @@ Router.post('/password/otp',validate.otp,controller.otpPassword);
 Router.post('/password/reset',validate.reset, controller.resetPassword);
 
 Router.get('/profile', authMiddleware.requestAuth, controller.profile);
+
+Router.get('/list', authMiddleware.requestAuth, controller.list);
   
 module.exports = Router;

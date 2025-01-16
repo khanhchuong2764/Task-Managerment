@@ -282,3 +282,16 @@ module.exports.profile = async (req,res) => {
     });
     
 }
+
+// [GET] /user/list
+module.exports.list = async (req,res) => {
+    const users = await User.find({
+        deleted:false,
+        status:"active"
+    }).select("id fullName email");
+    res.json({  
+        code: 200,
+        message:"Thanh Cong",
+        users:users
+    });
+}
