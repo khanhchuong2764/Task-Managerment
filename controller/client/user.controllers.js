@@ -159,7 +159,9 @@ module.exports.login = async (req,res) => {
         });
         return;
     }
-    await UserTemp.deleteOne({_id :user_temp.id});
+    if (user_temp) {
+        await UserTemp.deleteOne({_id :user_temp.id});
+    }
     res.cookie("token",exitsUser.token);
     res.json({  
         code: 200,
@@ -269,4 +271,14 @@ module.exports.resetPassword = async (req,res) => {
             message:"Lỗi"
         });
     }
+}
+
+// [GET] /user/profile
+module.exports.profile = async (req,res) => {
+    res.json({  
+        code: 200,
+        message:"Thanh Cong",
+        user:req.user
+    });
+    
 }
